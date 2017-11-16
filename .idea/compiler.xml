@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="haodoudao" />
+        <module name="haodoumanage" />
+        <module name="haodouregist" />
+        <module name="haodouservice" />
+        <module name="haodouweb" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="haodou" target="1.8" />
+      <module name="haodoudao" target="1.8" />
+      <module name="haodoumanage" target="1.8" />
+      <module name="haodouregist" target="1.8" />
+      <module name="haodouservice" target="1.8" />
+      <module name="haodouweb" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
