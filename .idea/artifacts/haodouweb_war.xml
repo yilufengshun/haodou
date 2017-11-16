@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="haodouweb:war">
+    <output-path>$PROJECT_DIR$/haodouweb/target</output-path>
+    <root id="archive" name="haodouweb.war">
+      <element id="artifact" artifact-name="haodouweb:war exploded" />
+    </root>
+  </artifact>
+</component>
