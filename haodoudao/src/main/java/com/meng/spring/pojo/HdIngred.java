@@ -1,5 +1,7 @@
 package com.meng.spring.pojo;
 
+
+//食材
 public class HdIngred {
     private Integer ingredId;
 

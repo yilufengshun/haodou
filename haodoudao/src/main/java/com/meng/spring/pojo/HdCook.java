@@ -2,6 +2,8 @@ package com.meng.spring.pojo;
 
 import java.util.Date;
 
+
+//菜谱
 public class HdCook {
     private Integer cookId;
 

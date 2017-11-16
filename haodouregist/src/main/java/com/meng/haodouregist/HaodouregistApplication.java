@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class HaodouregistApplication {
 
 	public static void main(String[] args) {
+
 		SpringApplication.run(HaodouregistApplication.class, args);
 	}
 }

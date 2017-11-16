@@ -1,5 +1,7 @@
 package com.meng.spring.pojo;
 
+
+//话题
 public class HdTopic {
     private Integer topicId;
 

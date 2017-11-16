@@ -1,6 +1,9 @@
 package com.meng.spring.pojo;
 
+
+//用户专辑
 public class HdAlbum {
+
     private Integer albumId;
 
     private String albumIntro;
