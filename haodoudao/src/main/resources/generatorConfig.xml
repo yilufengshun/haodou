@@ -22,6 +22,7 @@
 	  <table  tableName="ingred" domainObjectName="HdIngred"></table>
 	  <table  tableName="topic" domainObjectName="HdTopic"></table>
 	  <table  tableName="user" domainObjectName="HdUser"></table>
+	  <table  tableName="album_info" domainObjectName="HdAlbumInfo"></table>
 
   </context>
 </generatorConfiguration>

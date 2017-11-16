@@ -1,7 +1,5 @@
 package com.meng.spring.pojo;
 
-
-//小组
 public class HdGroup {
     private Long groupId;
 

@@ -1,8 +1,6 @@
 package com.meng.spring.pojo;
 
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
 public class HdCookExample {
@@ -104,32 +102,6 @@ public class HdCookExample {
                 throw new RuntimeException("Between values for " + property + " cannot be null");
             }
             criteria.add(new Criterion(condition, value1, value2));
-        }
-
-        protected void addCriterionForJDBCDate(String condition, Date value, String property) {
-            if (value == null) {
-                throw new RuntimeException("Value for " + property + " cannot be null");
-            }
-            addCriterion(condition, new java.sql.Date(value.getTime()), property);
-        }
-
-        protected void addCriterionForJDBCDate(String condition, List<Date> values, String property) {
-            if (values == null || values.size() == 0) {
-                throw new RuntimeException("Value list for " + property + " cannot be null or empty");
-            }
-            List<java.sql.Date> dateList = new ArrayList<java.sql.Date>();
-            Iterator<Date> iter = values.iterator();
-            while (iter.hasNext()) {
-                dateList.add(new java.sql.Date(iter.next().getTime()));
-            }
-            addCriterion(condition, dateList, property);
-        }
-
-        protected void addCriterionForJDBCDate(String condition, Date value1, Date value2, String property) {
-            if (value1 == null || value2 == null) {
-                throw new RuntimeException("Between values for " + property + " cannot be null");
-            }
-            addCriterion(condition, new java.sql.Date(value1.getTime()), new java.sql.Date(value2.getTime()), property);
         }
 
         public Criteria andCookIdIsNull() {
@@ -412,53 +384,63 @@ public class HdCookExample {
             return (Criteria) this;
         }
 
-        public Criteria andReadyTimeEqualTo(Date value) {
-            addCriterionForJDBCDate("ready_time =", value, "readyTime");
+        public Criteria andReadyTimeEqualTo(String value) {
+            addCriterion("ready_time =", value, "readyTime");
             return (Criteria) this;
         }
 
-        public Criteria andReadyTimeNotEqualTo(Date value) {
-            addCriterionForJDBCDate("ready_time <>", value, "readyTime");
+        public Criteria andReadyTimeNotEqualTo(String value) {
+            addCriterion("ready_time <>", value, "readyTime");
             return (Criteria) this;
         }
 
-        public Criteria andReadyTimeGreaterThan(Date value) {
-            addCriterionForJDBCDate("ready_time >", value, "readyTime");
+        public Criteria andReadyTimeGreaterThan(String value) {
+            addCriterion("ready_time >", value, "readyTime");
             return (Criteria) this;
         }
 
-        public Criteria andReadyTimeGreaterThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("ready_time >=", value, "readyTime");
+        public Criteria andReadyTimeGreaterThanOrEqualTo(String value) {
+            addCriterion("ready_time >=", value, "readyTime");
             return (Criteria) this;
         }
 
-        public Criteria andReadyTimeLessThan(Date value) {
-            addCriterionForJDBCDate("ready_time <", value, "readyTime");
+        public Criteria andReadyTimeLessThan(String value) {
+            addCriterion("ready_time <", value, "readyTime");
             return (Criteria) this;
         }
 
-        public Criteria andReadyTimeLessThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("ready_time <=", value, "readyTime");
+        public Criteria andReadyTimeLessThanOrEqualTo(String value) {
+            addCriterion("ready_time <=", value, "readyTime");
             return (Criteria) this;
         }
 
-        public Criteria andReadyTimeIn(List<Date> values) {
-            addCriterionForJDBCDate("ready_time in", values, "readyTime");
+        public Criteria andReadyTimeLike(String value) {
+            addCriterion("ready_time like", value, "readyTime");
             return (Criteria) this;
         }
 
-        public Criteria andReadyTimeNotIn(List<Date> values) {
-            addCriterionForJDBCDate("ready_time not in", values, "readyTime");
+        public Criteria andReadyTimeNotLike(String value) {
+            addCriterion("ready_time not like", value, "readyTime");
             return (Criteria) this;
         }
 
-        public Criteria andReadyTimeBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("ready_time between", value1, value2, "readyTime");
+        public Criteria andReadyTimeIn(List<String> values) {
+            addCriterion("ready_time in", values, "readyTime");
             return (Criteria) this;
         }
 
-        public Criteria andReadyTimeNotBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("ready_time not between", value1, value2, "readyTime");
+        public Criteria andReadyTimeNotIn(List<String> values) {
+            addCriterion("ready_time not in", values, "readyTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andReadyTimeBetween(String value1, String value2) {
+            addCriterion("ready_time between", value1, value2, "readyTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andReadyTimeNotBetween(String value1, String value2) {
+            addCriterion("ready_time not between", value1, value2, "readyTime");
             return (Criteria) this;
         }
 
@@ -472,53 +454,63 @@ public class HdCookExample {
             return (Criteria) this;
         }
 
-        public Criteria andMakeTimeEqualTo(Date value) {
-            addCriterionForJDBCDate("make_time =", value, "makeTime");
+        public Criteria andMakeTimeEqualTo(String value) {
+            addCriterion("make_time =", value, "makeTime");
             return (Criteria) this;
         }
 
-        public Criteria andMakeTimeNotEqualTo(Date value) {
-            addCriterionForJDBCDate("make_time <>", value, "makeTime");
+        public Criteria andMakeTimeNotEqualTo(String value) {
+            addCriterion("make_time <>", value, "makeTime");
             return (Criteria) this;
         }
 
-        public Criteria andMakeTimeGreaterThan(Date value) {
-            addCriterionForJDBCDate("make_time >", value, "makeTime");
+        public Criteria andMakeTimeGreaterThan(String value) {
+            addCriterion("make_time >", value, "makeTime");
             return (Criteria) this;
         }
 
-        public Criteria andMakeTimeGreaterThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("make_time >=", value, "makeTime");
+        public Criteria andMakeTimeGreaterThanOrEqualTo(String value) {
+            addCriterion("make_time >=", value, "makeTime");
             return (Criteria) this;
         }
 
-        public Criteria andMakeTimeLessThan(Date value) {
-            addCriterionForJDBCDate("make_time <", value, "makeTime");
+        public Criteria andMakeTimeLessThan(String value) {
+            addCriterion("make_time <", value, "makeTime");
             return (Criteria) this;
         }
 
-        public Criteria andMakeTimeLessThanOrEqualTo(Date value) {
-            addCriterionForJDBCDate("make_time <=", value, "makeTime");
+        public Criteria andMakeTimeLessThanOrEqualTo(String value) {
+            addCriterion("make_time <=", value, "makeTime");
             return (Criteria) this;
         }
 
-        public Criteria andMakeTimeIn(List<Date> values) {
-            addCriterionForJDBCDate("make_time in", values, "makeTime");
+        public Criteria andMakeTimeLike(String value) {
+            addCriterion("make_time like", value, "makeTime");
             return (Criteria) this;
         }
 
-        public Criteria andMakeTimeNotIn(List<Date> values) {
-            addCriterionForJDBCDate("make_time not in", values, "makeTime");
+        public Criteria andMakeTimeNotLike(String value) {
+            addCriterion("make_time not like", value, "makeTime");
             return (Criteria) this;
         }
 
-        public Criteria andMakeTimeBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("make_time between", value1, value2, "makeTime");
+        public Criteria andMakeTimeIn(List<String> values) {
+            addCriterion("make_time in", values, "makeTime");
             return (Criteria) this;
         }
 
-        public Criteria andMakeTimeNotBetween(Date value1, Date value2) {
-            addCriterionForJDBCDate("make_time not between", value1, value2, "makeTime");
+        public Criteria andMakeTimeNotIn(List<String> values) {
+            addCriterion("make_time not in", values, "makeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andMakeTimeBetween(String value1, String value2) {
+            addCriterion("make_time between", value1, value2, "makeTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andMakeTimeNotBetween(String value1, String value2) {
+            addCriterion("make_time not between", value1, value2, "makeTime");
             return (Criteria) this;
         }
 
@@ -859,6 +851,66 @@ public class HdCookExample {
 
         public Criteria andUserIdNotBetween(Integer value1, Integer value2) {
             addCriterion("user_id not between", value1, value2, "userId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdIsNull() {
+            addCriterion("group_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdIsNotNull() {
+            addCriterion("group_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdEqualTo(Integer value) {
+            addCriterion("group_id =", value, "groupId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdNotEqualTo(Integer value) {
+            addCriterion("group_id <>", value, "groupId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdGreaterThan(Integer value) {
+            addCriterion("group_id >", value, "groupId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("group_id >=", value, "groupId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdLessThan(Integer value) {
+            addCriterion("group_id <", value, "groupId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdLessThanOrEqualTo(Integer value) {
+            addCriterion("group_id <=", value, "groupId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdIn(List<Integer> values) {
+            addCriterion("group_id in", values, "groupId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdNotIn(List<Integer> values) {
+            addCriterion("group_id not in", values, "groupId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdBetween(Integer value1, Integer value2) {
+            addCriterion("group_id between", value1, value2, "groupId");
+            return (Criteria) this;
+        }
+
+        public Criteria andGroupIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("group_id not between", value1, value2, "groupId");
             return (Criteria) this;
         }
     }
