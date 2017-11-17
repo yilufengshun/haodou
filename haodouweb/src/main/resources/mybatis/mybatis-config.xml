@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration
-        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
-
-    <!--plugins在settings之后，environments之前-->
+    <!-- 分页插件 5.0之后的插件类-->
     <plugins>
         <!-- PageHelper4.1.1 -->
         <plugin interceptor="com.github.pagehelper.PageHelper">
@@ -16,5 +15,4 @@
             <property name="reasonable" value="false"/>
         </plugin>
     </plugins>
-
 </configuration>
