@@ -10,7 +10,7 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private HdUserMapper mapper;
     @Override
-    public void addUser(HdUser hdUser) {
-        mapper.insert(hdUser);
-    }
+public void addUser(HdUser hdUser) {
+    mapper.insert(hdUser);
+}
 }
