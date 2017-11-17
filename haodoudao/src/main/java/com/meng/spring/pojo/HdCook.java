@@ -1,7 +1,5 @@
 package com.meng.spring.pojo;
 
-import java.util.Date;
-
 public class HdCook {
     private Integer cookId;
 
@@ -11,9 +9,9 @@ public class HdCook {
 
     private String cookIntro;
 
-    private Date readyTime;
+    private String readyTime;
 
-    private Date makeTime;
+    private String makeTime;
 
     private String mealsnum;
 
@@ -24,6 +22,8 @@ public class HdCook {
     private String cookLabel;
 
     private Integer userId;
+
+    private Integer groupId;
 
     public Integer getCookId() {
         return cookId;
@@ -57,19 +57,19 @@ public class HdCook {
         this.cookIntro = cookIntro;
     }
 
-    public Date getReadyTime() {
+    public String getReadyTime() {
         return readyTime;
     }
 
-    public void setReadyTime(Date readyTime) {
+    public void setReadyTime(String readyTime) {
         this.readyTime = readyTime;
     }
 
-    public Date getMakeTime() {
+    public String getMakeTime() {
         return makeTime;
     }
 
-    public void setMakeTime(Date makeTime) {
+    public void setMakeTime(String makeTime) {
         this.makeTime = makeTime;
     }
 
@@ -111,5 +111,13 @@ public class HdCook {
 
     public void setUserId(Integer userId) {
         this.userId = userId;
+    }
+
+    public Integer getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(Integer groupId) {
+        this.groupId = groupId;
     }
 }

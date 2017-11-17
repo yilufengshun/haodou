@@ -25,7 +25,7 @@
         </dependency>
         <dependency>
             <groupId>com.meng.spring</groupId>
-            <artifactId>haodoudao</artifactId>
+            <artifactId>ttmanagerdao</artifactId>
             <version>1.0</version>
         </dependency>
         <dependency>
