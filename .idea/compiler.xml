@@ -13,6 +13,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="bigproduct" target="1.8" />
       <module name="haodou" target="1.8" />
       <module name="haodoudao" target="1.8" />
       <module name="haodoumanage" target="1.8" />
