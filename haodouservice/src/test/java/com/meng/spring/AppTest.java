@@ -3,6 +3,8 @@ package com.meng.spring;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * Unit test for simple App.
@@ -33,6 +35,12 @@ public class AppTest
      */
     public void testApp()
     {
+
         assertTrue( true );
+
+
+
+
+
     }
 }

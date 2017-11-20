@@ -8,7 +8,6 @@
     <param-name>contextConfigLocation</param-name>
     <param-value>classpath:spring/applicationContext.xml</param-value>
   </context-param>
-
   <!-- 过滤器 -->
   <filter>
     <filter-name>filter</filter-name>
@@ -29,9 +28,7 @@
   </filter-mapping>
 
   <!-- 加载全局的配置文件-->
-  <listener>
-    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-  </listener>
+
 
   <!-- 配置前端控制器(中央控制器) -->
   <servlet>

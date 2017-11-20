@@ -1,0 +1,122 @@
+(function($, undefined){
+	var tpl = '<li>'+
+					'<span class="num num_{House}">{House}</span>'+
+					'<a href="http://wo.haodou.com/{UserId}/" title="{UserName}" class="photo" target="_blank"><img src="{AvatarUrl}" alt="{UserName}" width="48" height="48" /></a>'+
+					'<div class="name">'+
+						'<p>'+
+							'{Html1}'+
+							'<a href="http://wo.haodou.com/{UserId}/" id="topic_w_{UserId}" title="{UserName}" target="_blank">{SubUserName}</a>'+
+						'</p>'+
+						'{Html2}'+
+					'</div>'+
+				'</li>';
+
+	var group_top = {
+		'top_btn' : $('a.clk_act_top').add('a.clk_zong_he_top'),
+		'ajaxGetData' : function (url, cate_id, append_dom){
+			$.getJSON(url, {"cate_id" : cate_id}, function (data){
+				if (data['status'] == 1)
+				{
+					var temp_tpl = '', data = data['data'], j = 0;
+					for (var i in data)
+					{
+						j++;
+						if (!data[i]['isMe'])
+						{
+							if(data[i]['Relation'] == true)
+								data[i]['Html1'] = '<span title="已关注" class="cared_of fr">已关注</span>';
+							else
+								data[i]['Html1'] = '<a class="care_of fr clk_act_adfolw" href="javascript:void(0);" id="topic_'+data[i]['UserId']+'_m" title="加关注"><b class="orange">+</b>关注</a>';
+						}
+						else
+							data[i]['Html1'] = '';
+
+						if (append_dom === 'toggle_act_top')
+							data[i]['Html2'] = "<p>本月发表了 "+data[i]['TopicTotal']+" 个话题</p>";
+						else
+							data[i]['Html2'] = "<p>共有 "+data[i]['Wealth']+" 豆币</p>";
+
+						data[i]['SubUserName'] = data[i]['UserName'].substr(0, 10).toText();
+						data[i]['UserName'] = data[i]['UserName'].toText();
+						data[i]['House'] = j;
+						temp_tpl += tpl.replace(/\{\w+\}/g, function(m) { return data[i][m.substring(1,m.length-1)];});
+					}
+					$("."+append_dom).eq(1).html(temp_tpl);
+				}
+			});
+		},
+
+		'bindBtnClick' : function (){
+			group_top.top_btn.bind('click', function (){
+				var $t = $(this);
+				if ($t.hasClass('sel')){
+					return false;
+				}
+
+				switch ($t.attr('id'))
+				{
+					case 'top_tab_w' :
+						if ('' == $(".toggle_act_top").eq(1).html()){ // 只加载一次
+							var url = 'http://group.haodou.com?';
+							if (/^http:\/\/wo.haodou.com/.test(window.location.href))
+								url = 'http://wo.haodou.com/topic.php?';
+							var cate_id = $t.attr('_cate_id'), url = url + 'do=ajaxTopTopicUserInfoByMonth';
+							group_top.ajaxGetData(url, cate_id, 'toggle_act_top');
+						}
+						break;
+
+					case 'top_tab_wealth' :
+						if ('' == $(".toggle_zong_he_top").eq(1).html()){ // 只加载一次
+							var url = 'http://group.haodou.com?do=ajaxTopWealthUserInfo';
+							group_top.ajaxGetData(url, 0, 'toggle_zong_he_top');
+						}
+						break;
+				}
+			})
+		}
+	};
+
+	// 活跃豆子排行榜的选项卡切换
+	group_top.bindBtnClick();
+	$('a.clk_act_top').bind('click', function(){
+		var $t = $(this);
+		if ($t.hasClass('sel')){
+			return false;
+		}
+		$('ul.toggle_act_top').toggle();
+		$('a.clk_act_top').removeClass('sel');
+		$(this).addClass('sel');
+	});
+
+
+	// 综合榜的选项卡切换
+	$('a.clk_zong_he_top').bind('click', function(){
+		if ($(this).hasClass('sel')){
+			return false;
+		}
+		$('ul.toggle_zong_he_top').toggle();
+		$('a.clk_zong_he_top').removeClass('sel');
+		$(this).addClass('sel');
+	});
+
+	// 关注与取消关注点击
+	function groupFollow()
+	{
+		var id_info = $(this).attr('id').split('_');
+		hd.follow(id_info[1], '<span title="已关注" class="cared_of fr">已关注</span>', function(){
+			var extra = '';
+			if (id_info[2] == undefined) {
+				return false;
+			} else if (id_info[2] == 'w') {
+				extra = '#' + id_info[0] + '_' + id_info[1] + '_m';
+			} else if (id_info[2] == 'm'){
+				extra = '#' + id_info[0] + '_' + id_info[1] + '_w';
+			}
+			$(extra).replaceWith('<span title="已关注" class="cared_of fr">已关注</span>');
+		});
+		return false;
+	}
+
+	// 动态绑定
+	$(".toggle_act_top").add(".toggle_zong_he_top").on('click.groupFollow', 'a.clk_act_adfolw', groupFollow);
+})(jQuery, undefined);

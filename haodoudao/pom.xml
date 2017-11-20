@@ -37,10 +37,10 @@
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
         <!-- 连接池 -->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
-        </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+            </dependency>
 
         <!-- Mybatis -->
         <dependency>

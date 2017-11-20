@@ -6,8 +6,6 @@
   <artifactId>haodou</artifactId>
   <version>1.0</version>
   <modules>
-
-
     <module>haodoudao</module>
     <module>haodouservice</module>
     <module>haodouweb</module>

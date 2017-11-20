@@ -11,8 +11,8 @@ public interface GroupService {
     void addGroup(HdGroup hdGroup);
     void deleteGroup(Integer id);
     void editGroup(HdGroup hdGroup);
-    List<String> findByType(String type);
-    List<String> findAllName();
+    List<HdGroup> findByType(String type);
+    List<HdGroup> findAllName();
 
 
 }
