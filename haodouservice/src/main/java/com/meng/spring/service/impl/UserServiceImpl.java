@@ -1,5 +1,6 @@
 package com.meng.spring.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.meng.spring.dao.HdUserMapper;
 import com.meng.spring.pojo.HdUser;
 import com.meng.spring.pojo.HdUserExample;
@@ -28,5 +29,21 @@ public class UserServiceImpl implements UserService {
         ex.createCriteria().andUserPhoneEqualTo(phone);
         List<HdUser> hdUsers = mapper.selectByExample(ex);
         return hdUsers.get(0);
+    }
+
+    @Override
+    public List<HdUser> findAll(Integer page, Integer rows) {
+        PageHelper.startPage(page,rows);
+        return mapper.selectByExample(new HdUserExample());
+    }
+
+    @Override
+    public void edit(HdUser hdUser) {
+        mapper.updateByPrimaryKey(hdUser);
+    }
+
+    @Override
+    public void delete(Integer id) {
+        mapper.deleteByPrimaryKey(id);
     }
 }
