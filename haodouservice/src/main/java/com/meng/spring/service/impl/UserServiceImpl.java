@@ -32,9 +32,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<HdUser> findAll(Integer page, Integer rows) {
+    public List<HdUser> findAll(Integer page, Integer rows,String username) {
         PageHelper.startPage(page,rows);
-        return mapper.selectByExample(new HdUserExample());
+        HdUserExample hdUserExample = new HdUserExample();
+        hdUserExample.createCriteria().andUserNameLike(username);
+        return mapper.selectByExample(hdUserExample);
     }
 
     @Override

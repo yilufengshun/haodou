@@ -30,7 +30,7 @@
 			</tr>
 			<tr>
 				<td>出生日期:</td>
-				<td ><input  class="easyui-textbox" type="date" name="birthday"  style="width: 280px;" id="birthday"></input></td>
+				<td ><input   class="easyui-textbox" type="date" name="birthday"  style="width: 280px;" id="birthday"></input></td>
 			</tr>
 			<tr>
 				<td>星座:</td>
@@ -90,12 +90,13 @@
 <script type="text/javascript">
 	var itemEditEditor ;
 	//var day=TAOTAO.formatDateTime($("#birthday"));
-	alert(day);
-	$("#birthday").val(day);
+	//alert(day);
+	//$("#birthday").val(day);
 	$(function(){
 		//实例化编辑器
 		itemEditEditor = TAOTAO.createEditor("#itemeEditForm [name=desc]");
 	});
+
 	
 	function submitForm(){
 		if(!$('#itemeEditForm').form('validate')){
@@ -112,6 +113,7 @@
 			var ps = [];
 			for(var i = 1;i<trs.length;i++){
 				var tr = trs.eq(i);
+
 				ps.push({
 					"k" : $.trim(tr.find("td").eq(0).find("span").text()),
 					"v" : $.trim(tr.find("input").val())
@@ -136,4 +138,7 @@
 			}
 		});
 	}
+
+
+
 </script>

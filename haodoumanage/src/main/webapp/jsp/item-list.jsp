@@ -2,6 +2,11 @@
 <table class="easyui-datagrid" id="itemList" title="商品列表" 
        data-options="singleSelect:false,collapsible:true,pagination:true,url:'/user/list',method:'get',pageSize:30,toolbar:toolbar">
     <thead>
+    <div id="tb" style="padding:3px">
+        <span>用户名称:</span>
+        <input id="username" style="line-height:26px;border:1px solid #ccc">
+        <a href="#" class="easyui-linkbutton" plain="true" onclick="doSearch()">搜索</a>
+    </div>
         <tr>
 
         	<th data-options="field:'userId',width:60">用户id</th>
@@ -10,8 +15,7 @@
             <th data-options="field:'userPassword',width:100">密码</th>
             <th data-options="field:'relName',width:100">真实姓名</th>
             <th data-options="field:'userPassword',width:100">密码</th>
-
-            <th data-options="field:'birthday',width:130,align:'center',formatter:TAOTAO.formatDateTime">出生日期</th>
+            <th data-options="field:'birthday',width:130,align:'center'">出生日期</th>
             <th data-options="field:'zodiac',width:100">星座</th>
             <th data-options="field:'hobby',width:100">爱好</th>
             <th data-options="field:'bloodType',width:100">血型</th>
@@ -67,7 +71,8 @@
 
         		    //回显数据
         			var data = $("#itemList").datagrid("getSelections")[0];
-        			data.priceView = TAOTAO.formatPrice(data.price);
+        			//data.priceView = TAOTAO.formatPrice(data.price);
+
         			$("#itemeEditForm").form("load",data);
         			
         			// 加载商品描述
@@ -183,4 +188,11 @@
         	});
         }
     }];
+
+    function doSearch(){
+        $('#tt').datagrid('load',{
+            username: $('#username').val(),
+
+        });
+    }
 </script>
