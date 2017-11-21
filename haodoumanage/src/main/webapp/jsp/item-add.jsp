@@ -5,56 +5,75 @@
 <div style="padding:10px 10px 10px 10px">
 	<form id="itemAddForm" class="itemForm" method="post">
 	    <table cellpadding="5">
+
+			<tr>
+				<td>用户名称:</td>
+				<td><input class="easyui-textbox" type="text" name="userName" data-options="required:true" style="width: 280px;"></input></td>
+			</tr>
+			<tr>
+				<td>用户电话:</td>
+				<td><input class="easyui-textbox" type="text" name="userPhone"  style="width: 280px;"></input></td>
+			</tr>
+			<tr>
+				<td>用户密码:</td>
+				<td><input class="easyui-textbox" type="text" name="userPassword" data-options="required:true" style="width: 280px;"></input></td>
+			</tr>
+			<tr>
+				<td>真实姓名:</td>
+				<td><input class="easyui-textbox" type="text" name="relName"  style="width: 280px;"></input></td>
+			</tr>
+			<tr>
+				<td>出生日期:</td>
+				<td><input class="easyui-textbox" type="date" name="birthday"  style="width: 280px;"></input></td>
+			</tr>
+			<tr>
+				<td>星座:</td>
+				<td><input class="easyui-textbox" type="text" name="zodiac"  style="width: 280px;"></input></td>
+			</tr>
+			<tr>
+				<td>毕业学校:</td>
+				<td><input class="easyui-textbox" type="text" name="school"  style="width: 280px;"></input></td>
+			</tr>
+			<tr>
+				<td>血型:</td>
+				<td><input class="easyui-textbox" type="text" name="bloodType"  style="width: 280px;"></input></td>
+			</tr>
+			<tr>
+				<td>地址:</td>
+				<td><input class="easyui-textbox" type="text" name="address"  style="width: 280px;"></input></td>
+			</tr>
+			<tr>
+				<td>工作:</td>
+				<td><input class="easyui-textbox" type="text" name="job"  style="width: 280px;"></input></td>
+			</tr>
+			tr>
+			<td>email:</td>
+			<td><input class="easyui-textbox" type="text" name="email"  style="width: 280px;"></input></td>
+			</tr>
+			<tr>
+				<td>学历:</td>
+				<td><input class="easyui-textbox" type="text" name="educational"  style="width: 280px;"></input></td>
+			</tr>
+			<tr>
+				<td>爱好:</td>
+				<td><input class="easyui-textbox" type="text" name="hobby"  style="width: 280px;"></input></td>
+			</tr>
+
+
 	        <tr>
-	            <td>商品类目:</td>
-	            <td>
-	            	<a href="javascript:void(0)" class="easyui-linkbutton selectItemCat">选择类目</a>
-	            	<input type="hidden" name="cid" style="width: 280px;"></input>
-	            </td>
-	        </tr>
-	        <tr>
-	            <td>商品标题:</td>
-	            <td><input class="easyui-textbox" type="text" name="title" data-options="required:true" style="width: 280px;"></input></td>
-	        </tr>
-	        <tr>
-	            <td>商品卖点:</td>
-	            <td><input class="easyui-textbox" name="sellPoint" data-options="multiline:true,validType:'length[0,150]'" style="height:60px;width: 280px;"></input></td>
-	        </tr>
-	        <tr>
-	            <td>商品价格:</td>
-	            <td><input class="easyui-numberbox" type="text" name="priceView" data-options="min:1,max:99999999,precision:2,required:true" />
-	            	<input type="hidden" name="price"/>
-	            </td>
-	        </tr>
-	        <tr>
-	            <td>库存数量:</td>
-	            <td><input class="easyui-numberbox" type="text" name="num" data-options="min:1,max:99999999,precision:0,required:true" /></td>
-	        </tr>
-	        <tr>
-	            <td>条形码:</td>
-	            <td>
-	                <input class="easyui-textbox" type="text" name="barcode" data-options="validType:'length[1,30]'" />
-	            </td>
-	        </tr>
-	        <tr>
-	            <td>商品图片:</td>
+	            <td>用户头像:</td>
 	            <td>
 	            	 <a href="javascript:void(0)" class="easyui-linkbutton picFileUpload">上传图片</a>
-	                 <input type="hidden" name="image"/>
+	                 <input type="hidden" name="avator"/>
 	            </td>
 	        </tr>
 	        <tr>
-	            <td>商品描述:</td>
+	            <td>简介:</td>
 	            <td>
-	                <textarea style="width:800px;height:300px;visibility:hidden;" name="desc"></textarea>
+	                <textarea style="width:800px;height:300px;" name="introduction"></textarea>
 	            </td>
 	        </tr>
-	        <tr class="params hide">
-	        	<td>商品规格:</td>
-	        	<td>
-	        		
-	        	</td>
-	        </tr>
+
 	    </table>
 	    <input type="hidden" name="itemParams"/>
 	</form>
@@ -85,7 +104,7 @@
 		//取商品价格，单位为“分”
 		$("#itemAddForm [name=price]").val(eval($("#itemAddForm [name=priceView]").val()) * 100);
 		//同步文本框中的商品描述
-		itemAddEditor.sync();
+	//	itemAddEditor.sync();
 		//取商品的规格
 //		var paramJson = [];
 //		$("#itemAddForm .params li").each(function(i,e){
@@ -111,9 +130,10 @@
 		//ajax的post方式提交表单
 		//$("#itemAddForm").serialize()将表单序列号为key-value形式的字符串
 //		alert($("#itemAddForm").serialize());
-		$.post("/item/save",$("#itemAddForm").serialize(), function(data){
+		$.post("/user/add",$("#itemAddForm").serialize(), function(data){
+		    alert(data.status);
 			if(data.status == 200){
-				$.messager.alert('提示','新增商品成功!');
+				$.messager.alert('提示','新增用户成功!');
 			}
 		});
 	}

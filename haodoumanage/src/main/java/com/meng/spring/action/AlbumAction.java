@@ -43,11 +43,7 @@ public class AlbumAction {
         albumService.editAlbum(hdAlbum);
         return "";
     }
-    @RequestMapping("findbyalbum")
-    public String addinfo(Integer id,Integer pageNum){
-        PageInfo<HdAlbumInfo> byAlbum = albumService.findByAlbum(id, pageNum);
-        return "";
-    }
+
     @RequestMapping("findbyalbum")
     public String findbyalbum(Integer id,Integer pageNum){
         PageInfo<HdAlbumInfo> byAlbum = albumService.findByAlbum(id, pageNum);
@@ -58,7 +54,7 @@ public class AlbumAction {
         PageInfo<HdAlbum> byAlbum = albumService.findByName(name, pageNum);
         return "";
     }
-    @RequestMapping("findbyname")
+    @RequestMapping("findbyuser")
     public String findbyuser(Integer userid,Integer pageNum){
         PageInfo<HdAlbum> byAlbum = albumService.findByUser(userid, pageNum);
         return "";

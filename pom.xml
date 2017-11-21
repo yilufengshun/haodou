@@ -6,10 +6,10 @@
   <artifactId>haodou</artifactId>
   <version>1.0</version>
   <modules>
-    <module>haodoudao</module>
-    <module>haodouservice</module>
-    <module>haodouweb</module>
-    <module>haodoumanage</module>
+      <module>haodoudao</module>
+      <module>haodouservice</module>
+      <module>haodouweb</module>
+      <module>haodoumanage</module>
   </modules>
   <packaging>pom</packaging>
 

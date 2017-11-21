@@ -19,7 +19,7 @@
 </head>
 <body class="easyui-layout">
 	<div data-options="region:'north'" style="height:70px;text-align:center">
-		<h1>淘淘商城后台管理系统</h1>
+		<h1>好豆网后台管理系统</h1>
     </div>   
     <div data-options="region:'south'" style="height:50px;text-align:center">
     	共享版本V1.0
@@ -27,26 +27,54 @@
     <div data-options="region:'west',title:'菜单',split:true" style="width:180px;">
     	<ul id="menu" class="easyui-tree" style="margin-top: 10px;margin-left: 5px;">
          	<li>
-         		<span>商品管理</span>
+         		<span>用户管理</span>
          		<ul>
-	         		<li data-options="attributes:{'url':'item-add'}">新增商品</li>
-	         		<li data-options="attributes:{'url':'item-list'}">查询商品</li>
+	         		<li data-options="attributes:{'url':'item-add.jsp'}">添加用户</li>
+	         		<li data-options="attributes:{'url':'item-list.jsp'}">查看用户</li>
 	         		<%--<li data-options="attributes:{'url':'item-param-list'}">规格参数</li>--%>
 	         	</ul>
          	</li>
          	<li>
-         		<span>网站内容管理</span>
+         		<span>专辑管理</span>
          		<ul>
-	         		<li data-options="attributes:{'url':'content-category'}">内容分类管理</li>
-	         		<li data-options="attributes:{'url':'content'}">内容管理</li>
+	         		<li data-options="attributes:{'url':'content-category'}">添加专辑</li>
+	         		<li data-options="attributes:{'url':'content'}">查看专辑</li>
 	         	</ul>
          	</li>
+			<li>
+				<span>分组管理</span>
+				<ul>
+					<li data-options="attributes:{'url':'content-category'}">添加分组</li>
+					<li data-options="attributes:{'url':'content'}">查看分组</li>
+				</ul>
+			</li>
+			<li>
+				<span>菜谱管理</span>
+				<ul>
+					<li data-options="attributes:{'url':'content-category'}">添加菜谱</li>
+					<li data-options="attributes:{'url':'content'}">查看菜谱</li>
+				</ul>
+			</li>
+			<li>
+				<span>话题管理</span>
+				<ul>
+					<li data-options="attributes:{'url':'content-category'}">添加话题</li>
+					<li data-options="attributes:{'url':'content'}">查看话题</li>
+				</ul>
+			</li>
+			<li>
+				<span>食材管理</span>
+				<ul>
+					<li data-options="attributes:{'url':'content-category'}">添加食材</li>
+					<li data-options="attributes:{'url':'content'}">查看分组</li>
+				</ul>
+			</li>
          </ul>
     </div>
     <div data-options="region:'center',title:''">
     	<div id="tabs" class="easyui-tabs">
 		    <div title="首页" style="padding:20px;">
-		        	
+				欢迎来到好豆网后台！！！！
 		    </div>
 		</div>
     </div>

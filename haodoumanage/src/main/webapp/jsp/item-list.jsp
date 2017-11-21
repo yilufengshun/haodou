@@ -1,23 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <table class="easyui-datagrid" id="itemList" title="商品列表" 
-       data-options="singleSelect:false,collapsible:true,pagination:true,url:'/item/list',method:'get',pageSize:30,toolbar:toolbar">
+       data-options="singleSelect:false,collapsible:true,pagination:true,url:'/user/list',method:'get',pageSize:30,toolbar:toolbar">
     <thead>
         <tr>
-        	<th data-options="field:'ck',checkbox:true"></th>
-        	<th data-options="field:'id',width:60">商品ID</th>
-            <th data-options="field:'title',width:200">商品标题</th>
-            <th data-options="field:'cid',width:100">叶子类目</th>
-            <th data-options="field:'sellPoint',width:100">卖点</th>
-            <th data-options="field:'price',width:70,align:'right',formatter:TAOTAO.formatPrice">价格</th>
-            <th data-options="field:'num',width:70,align:'right'">库存数量</th>
-            <th data-options="field:'barcode',width:100">条形码</th>
-            <th data-options="field:'status',width:60,align:'center',formatter:TAOTAO.formatItemStatus">状态</th>
-            <th data-options="field:'created',width:130,align:'center',formatter:TAOTAO.formatDateTime">创建日期</th>
-            <th data-options="field:'updated',width:130,align:'center',formatter:TAOTAO.formatDateTime">更新日期</th>
+
+        	<th data-options="field:'userId',width:60">用户id</th>
+            <th data-options="field:'userName',width:200">用户名称</th>
+            <th data-options="field:'userPhone',width:100">手机</th>
+            <th data-options="field:'userPassword',width:100">密码</th>
+            <th data-options="field:'relName',width:100">真实姓名</th>
+            <th data-options="field:'userPassword',width:100">密码</th>
+
+            <th data-options="field:'birthday',width:130,align:'center',formatter:TAOTAO.formatDateTime">出生日期</th>
+            <th data-options="field:'zodiac',width:100">星座</th>
+            <th data-options="field:'hobby',width:100">爱好</th>
+            <th data-options="field:'bloodType',width:100">血型</th>
+            <th data-options="field:'educational',width:100">学历</th>
+            <th data-options="field:'school',width:100">学校</th>
+            <th data-options="field:'hobby',width:100">爱好</th>
+            <th data-options="field:'email',width:100">电子邮箱</th>
+            <th data-options="field:'address',width:100">地址</th>
+            <th data-options="field:'introduction',width:100">简介</th>
+
         </tr>
     </thead>
 </table>
-<div id="itemEditWindow" class="easyui-window" title="编辑商品" data-options="modal:true,closed:true,iconCls:'icon-save',href:'/rest/page/item-edit'" style="width:80%;height:80%;padding:10px;">
+<div id="itemEditWindow" class="easyui-window" title="编辑商品" data-options="modal:true,closed:true,iconCls:'icon-save',href:'/jsp/item-edit.jsp'" style="width:80%;height:80%;padding:10px;">
 </div>
 <script>
 
@@ -26,9 +34,10 @@
     	var sels = itemList.datagrid("getSelections");
     	var ids = [];
     	for(var i in sels){
-    		ids.push(sels[i].id);
+    		ids.push(sels[i].userId);
     	}
     	ids = ids.join(",");
+
     	return ids;
     }
     
@@ -36,14 +45,14 @@
         text:'新增',
         iconCls:'icon-add',
         handler:function(){
-        	$(".tree-title:contains('新增商品')").parent().click();
+        	$(".tree-title:contains('添加用户')").parent().click();
         }
     },{
         text:'编辑',
         iconCls:'icon-edit',
         handler:function(){
         	var ids = getSelectionsIds();
-        	alert(ids);
+
         	if(ids.length == 0){
         		$.messager.alert('提示','必须选择一个商品才能编辑!');
         		return ;
@@ -55,21 +64,19 @@
         	
         	$("#itemEditWindow").window({
         		onLoad :function(){
-        			alert("ik");
+
         		    //回显数据
         			var data = $("#itemList").datagrid("getSelections")[0];
-        			alert(data);
         			data.priceView = TAOTAO.formatPrice(data.price);
-        			alert(data.priceView);
         			$("#itemeEditForm").form("load",data);
         			
         			// 加载商品描述
-        			$.getJSON('/rest/item/query/item/desc/'+data.id,function(_data){
-        				if(_data.status == 200){
-        					//UM.getEditor('itemeEditDescEditor').setContent(_data.data.itemDesc, false);
-        					itemEditEditor.html(_data.data.itemDesc);
-        				}
-        			});
+//        			$.getJSON('/rest/item/query/item/desc/'+data.id,function(_data){
+//        				if(_data.status == 200){
+//        					//UM.getEditor('itemeEditDescEditor').setContent(_data.data.itemDesc, false);
+//        					itemEditEditor.html(_data.data.itemDesc);
+//        				}
+//        			});
         			
         			//加载商品规格
 //        			$.getJSON('/rest/item/param/item/query/'+data.id,function(_data){
@@ -132,20 +139,20 @@
         	});
         }
     },'-',{
-        text:'下架',
+        text:'封杀',
         iconCls:'icon-remove',
         handler:function(){
         	var ids = getSelectionsIds();
         	if(ids.length == 0){
-        		$.messager.alert('提示','未选中商品!');
+        		$.messager.alert('提示','未选中用户!');
         		return ;
         	}
-        	$.messager.confirm('确认','确定下架ID为 '+ids+' 的商品吗？',function(r){
+        	$.messager.confirm('确认','确定下架ID为 '+ids+' 用户？',function(r){
         	    if (r){
         	    	var params = {"ids":ids};
                 	$.post("/rest/item/instock",params, function(data){
             			if(data.status == 200){
-            				$.messager.alert('提示','下架商品成功!',undefined,function(){
+            				$.messager.alert('提示','封杀用户成功!',undefined,function(){
             					$("#itemList").datagrid("reload");
             				});
             			}

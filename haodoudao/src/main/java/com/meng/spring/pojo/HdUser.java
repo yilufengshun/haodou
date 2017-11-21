@@ -1,5 +1,7 @@
 package com.meng.spring.pojo;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class HdUser {
@@ -12,7 +14,7 @@ public class HdUser {
     private String userPassword;
 
     private String relName;
-
+@DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthday;
 
     private String zodiac;

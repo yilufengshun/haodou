@@ -58,6 +58,11 @@
             <groupId>org.csource</groupId>
             <artifactId>fastdfs-client-java</artifactId>
         </dependency>
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+        </dependency>
+
     </dependencies>
     <build>
         <finalName>haodouweb</finalName>
