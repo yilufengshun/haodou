@@ -32,7 +32,7 @@ public class UserAction {
         return map;
     }
     @RequestMapping("list")
-    public dataDto list(Integer page, Integer rows){
+    public dataDto list(Integer page, Integer rows,String username){
         List<HdUser> all = userService.findAll(page, rows);
         dataDto dto=new dataDto();
         dto.setRows(all);
