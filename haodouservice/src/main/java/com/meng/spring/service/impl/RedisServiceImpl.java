@@ -13,13 +13,14 @@ import java.util.concurrent.TimeUnit;
  */
 @Service
 public class RedisServiceImpl implements RedisService {
-
-	//@Autowired
 	private RedisTemplate redisTemplate;
+
+	public void setRedisTemplate(RedisTemplate redisTemplate) {
+		this.redisTemplate = redisTemplate;
+	}
 
 	@Override
 	public void setExp(String key, String value, Long time) {
-
 		ValueOperations valueOperations = redisTemplate.opsForValue();
 		valueOperations.set(key,value,time, TimeUnit.SECONDS);
 	}

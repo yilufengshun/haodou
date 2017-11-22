@@ -40,7 +40,7 @@
     <!-- 加载配置 -->
     <init-param>
       <param-name>contextConfigLocation</param-name>
-      <param-value>classpath:spring/applicationContext.xml</param-value>
+      <param-value>classpath:spring/*.xml</param-value>
     </init-param>
   </servlet>
   <servlet-mapping>
