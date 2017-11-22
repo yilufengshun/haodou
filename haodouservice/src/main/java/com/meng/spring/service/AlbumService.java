@@ -13,7 +13,7 @@ public interface AlbumService {
     void deleteAlbum(Integer id);
     void editAlbum(HdAlbum hdAlbum);
     PageInfo<HdAlbum> findByUser(Integer userid, Integer pageNum);
-    PageInfo<HdAlbumInfo> findByAlbum(Integer albumid,Integer pageNum);
-    PageInfo<HdAlbum> findByName(String name,Integer pageNum);
+    PageInfo<HdAlbumInfo> findByAlbum(Integer albumid,Integer pageNum,Integer rows);
+    PageInfo<HdAlbum> findByName(String name,Integer rows,Integer pageNum);
 
 }

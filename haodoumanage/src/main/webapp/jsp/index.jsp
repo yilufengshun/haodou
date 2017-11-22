@@ -37,8 +37,10 @@
          	<li>
          		<span>专辑管理</span>
          		<ul>
-	         		<li data-options="attributes:{'url':'content-category'}">添加专辑</li>
-	         		<li data-options="attributes:{'url':'content'}">查看专辑</li>
+	         		<li data-options="attributes:{'url':'album-add.jsp'}">添加专辑</li>
+	         		<li data-options="attributes:{'url':'album-list.jsp'}">查看专辑</li>
+					<li data-options="attributes:{'url':'album-infoadd.jsp'}">添加专辑信息</li>
+					<li data-options="attributes:{'url':'album-info.jsp'}">查看专辑信息</li>
 	         	</ul>
          	</li>
 			<li>

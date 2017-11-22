@@ -1,18 +1,18 @@
 package com.meng.spring.pojo;
 
 public class HdAlbumInfo {
-    private Integer aluminfoId;
+    private Integer albuminfoId;
 
     private Integer cookId;
 
-    private Integer alumId;
+    private Integer albumId;
 
-    public Integer getAluminfoId() {
-        return aluminfoId;
+    public Integer getAlbuminfoId() {
+        return albuminfoId;
     }
 
-    public void setAluminfoId(Integer aluminfoId) {
-        this.aluminfoId = aluminfoId;
+    public void setAlbuminfoId(Integer albuminfoId) {
+        this.albuminfoId = albuminfoId;
     }
 
     public Integer getCookId() {
@@ -23,11 +23,11 @@ public class HdAlbumInfo {
         this.cookId = cookId;
     }
 
-    public Integer getAlumId() {
-        return alumId;
+    public Integer getAlbumId() {
+        return albumId;
     }
 
-    public void setAlumId(Integer alumId) {
-        this.alumId = alumId;
+    public void setAlbumId(Integer albumId) {
+        this.albumId = albumId;
     }
 }

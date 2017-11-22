@@ -1,35 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<table class="easyui-datagrid" id="itemList" title="商品列表" 
-       data-options="singleSelect:false,collapsible:true,pagination:true,url:'/user/list',method:'get',pageSize:30,toolbar:toolbar">
+<div id="tb" style="padding:3px">
+    <span>专辑id:</span>
+    <input id="username" style="line-height:26px;border:1px solid #ccc">
+    <a href="#" class="easyui-linkbutton" plain="true" onclick="doSearch()">搜索</a>
+</div>
+
+<table class="easyui-datagrid" id="albuminfo" title="专辑信息"
+       data-options="singleSelect:false,collapsible:true,pagination:true,url:'/album/findinfo',method:'get',pageSize:30,toolbar:toolbar">
     <thead>
-    <div id="tb" style="padding:3px">
-        <span>用户名称:</span>
-        <input id="username" style="line-height:26px;border:1px solid #ccc">
-        <a href="#" class="easyui-linkbutton" plain="true" onclick="doSearch()">搜索</a>
-    </div>
         <tr>
 
-        	<th data-options="field:'userId',width:60">用户id</th>
-            <th data-options="field:'userName',width:200">用户名称</th>
-            <th data-options="field:'userPhone',width:100">手机</th>
-            <th data-options="field:'userPassword',width:100">密码</th>
-            <th data-options="field:'relName',width:100">真实姓名</th>
-            <th data-options="field:'userPassword',width:100">密码</th>
-            <th data-options="field:'birthday',width:130,align:'center'">出生日期</th>
-            <th data-options="field:'zodiac',width:100">星座</th>
-            <th data-options="field:'hobby',width:100">爱好</th>
-            <th data-options="field:'bloodType',width:100">血型</th>
-            <th data-options="field:'educational',width:100">学历</th>
-            <th data-options="field:'school',width:100">学校</th>
-            <th data-options="field:'hobby',width:100">爱好</th>
-            <th data-options="field:'email',width:100">电子邮箱</th>
-            <th data-options="field:'address',width:100">地址</th>
-            <th data-options="field:'introduction',width:100">简介</th>
+        	<th data-options="field:'albuminfoId',width:60">专辑infoid</th>
+            <th data-options="field:'cookId',width:200">菜谱id</th>
+            <th data-options="field:'albumId',width:200">所属专辑</th>
+
 
         </tr>
     </thead>
 </table>
-<div id="itemEditWindow" class="easyui-window" title="编辑商品" data-options="modal:true,closed:true,iconCls:'icon-save',href:'/jsp/item-edit.jsp'" style="width:80%;height:80%;padding:10px;">
+<div id="itemEditWindow" class="easyui-window" title="编辑商品" data-options="modal:true,closed:true,iconCls:'icon-save',href:'/album/iteminfo?albumId=${albumId}'" style="width:80%;height:80%;padding:10px;">
 </div>
 <script>
 
@@ -38,7 +27,7 @@
     	var sels = itemList.datagrid("getSelections");
     	var ids = [];
     	for(var i in sels){
-    		ids.push(sels[i].userId);
+    		ids.push(sels[i].albuminfoId);
     	}
     	ids = ids.join(",");
 
@@ -49,7 +38,7 @@
         text:'新增',
         iconCls:'icon-add',
         handler:function(){
-        	$(".tree-title:contains('添加用户')").parent().click();
+        	$(".tree-title:contains('新增专辑信息')").parent().click();
         }
     },{
         text:'编辑',
@@ -126,6 +115,7 @@
         iconCls:'icon-cancel',
         handler:function(){
         	var ids = getSelectionsIds();
+        	alert(ids)
         	if(ids.length == 0){
         		$.messager.alert('提示','未选中商品!');
         		return ;
@@ -133,7 +123,7 @@
         	$.messager.confirm('确认','确定删除ID为 '+ids+' 的商品吗？',function(r){
         	    if (r){
         	    	var params = {"ids":ids};
-                	$.post("/rest/item/delete",params, function(data){
+                	$.post("/rest/item/delete?id="+ids,params, function(data){
             			if(data.status == 200){
             				$.messager.alert('提示','删除商品成功!',undefined,function(){
             					$("#itemList").datagrid("reload");
@@ -191,7 +181,7 @@
 
     function doSearch(){
         $('#itemList').datagrid('load',{
-            username: $('#username').val(),
+            username: $('#albumId').val(),
 
         });
     }

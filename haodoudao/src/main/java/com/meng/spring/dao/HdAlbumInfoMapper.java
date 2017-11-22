@@ -10,7 +10,7 @@ public interface HdAlbumInfoMapper {
 
     int deleteByExample(HdAlbumInfoExample example);
 
-    int deleteByPrimaryKey(Integer aluminfoId);
+    int deleteByPrimaryKey(Integer albuminfoId);
 
     int insert(HdAlbumInfo record);
 
@@ -18,7 +18,7 @@ public interface HdAlbumInfoMapper {
 
     List<HdAlbumInfo> selectByExample(HdAlbumInfoExample example);
 
-    HdAlbumInfo selectByPrimaryKey(Integer aluminfoId);
+    HdAlbumInfo selectByPrimaryKey(Integer albuminfoId);
 
     int updateByExampleSelective(@Param("record") HdAlbumInfo record, @Param("example") HdAlbumInfoExample example);
 

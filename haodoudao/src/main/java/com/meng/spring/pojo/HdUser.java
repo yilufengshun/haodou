@@ -1,8 +1,6 @@
 package com.meng.spring.pojo;
 
-
-
-
+import java.util.Date;
 
 public class HdUser {
     private Integer userId;
@@ -19,9 +17,13 @@ public class HdUser {
 
     private String zodiac;
 
+    private String cnzodiac;
+
     private String bloodType;
 
     private String address;
+
+    private String avator;
 
     private String introduction;
 
@@ -93,6 +95,14 @@ public class HdUser {
         this.zodiac = zodiac;
     }
 
+    public String getCnzodiac() {
+        return cnzodiac;
+    }
+
+    public void setCnzodiac(String cnzodiac) {
+        this.cnzodiac = cnzodiac;
+    }
+
     public String getBloodType() {
         return bloodType;
     }
@@ -107,6 +117,14 @@ public class HdUser {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getAvator() {
+        return avator;
+    }
+
+    public void setAvator(String avator) {
+        this.avator = avator;
     }
 
     public String getIntroduction() {

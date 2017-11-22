@@ -1,6 +1,7 @@
 package com.meng.spring.pojo;
 
 import java.util.ArrayList;
+
 import java.util.Iterator;
 import java.util.List;
 
@@ -109,7 +110,7 @@ public class HdUserExample {
             if (value == null) {
                 throw new RuntimeException("Value for " + property + " cannot be null");
             }
-            addCriterion(condition, value, property);
+            addCriterion(condition, new String(value), property);
         }
 
         protected void addCriterionForJDBCString(String condition, List<String> values, String property) {
@@ -119,7 +120,7 @@ public class HdUserExample {
             List<String> dateList = new ArrayList<String>();
             Iterator<String> iter = values.iterator();
             while (iter.hasNext()) {
-                dateList.add(iter.next());
+                dateList.add(new String(iter.next()));
             }
             addCriterion(condition, dateList, property);
         }
@@ -128,7 +129,7 @@ public class HdUserExample {
             if (value1 == null || value2 == null) {
                 throw new RuntimeException("Between values for " + property + " cannot be null");
             }
-            addCriterion(condition, value1, value2, property);
+            addCriterion(condition, new String(value1), new String(value2), property);
         }
 
         public Criteria andUserIdIsNull() {
@@ -601,6 +602,76 @@ public class HdUserExample {
             return (Criteria) this;
         }
 
+        public Criteria andCnzodiacIsNull() {
+            addCriterion("cnzodiac is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnzodiacIsNotNull() {
+            addCriterion("cnzodiac is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnzodiacEqualTo(String value) {
+            addCriterion("cnzodiac =", value, "cnzodiac");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnzodiacNotEqualTo(String value) {
+            addCriterion("cnzodiac <>", value, "cnzodiac");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnzodiacGreaterThan(String value) {
+            addCriterion("cnzodiac >", value, "cnzodiac");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnzodiacGreaterThanOrEqualTo(String value) {
+            addCriterion("cnzodiac >=", value, "cnzodiac");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnzodiacLessThan(String value) {
+            addCriterion("cnzodiac <", value, "cnzodiac");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnzodiacLessThanOrEqualTo(String value) {
+            addCriterion("cnzodiac <=", value, "cnzodiac");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnzodiacLike(String value) {
+            addCriterion("cnzodiac like", value, "cnzodiac");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnzodiacNotLike(String value) {
+            addCriterion("cnzodiac not like", value, "cnzodiac");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnzodiacIn(List<String> values) {
+            addCriterion("cnzodiac in", values, "cnzodiac");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnzodiacNotIn(List<String> values) {
+            addCriterion("cnzodiac not in", values, "cnzodiac");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnzodiacBetween(String value1, String value2) {
+            addCriterion("cnzodiac between", value1, value2, "cnzodiac");
+            return (Criteria) this;
+        }
+
+        public Criteria andCnzodiacNotBetween(String value1, String value2) {
+            addCriterion("cnzodiac not between", value1, value2, "cnzodiac");
+            return (Criteria) this;
+        }
+
         public Criteria andBloodTypeIsNull() {
             addCriterion("blood_type is null");
             return (Criteria) this;
@@ -738,6 +809,76 @@ public class HdUserExample {
 
         public Criteria andAddressNotBetween(String value1, String value2) {
             addCriterion("address not between", value1, value2, "address");
+            return (Criteria) this;
+        }
+
+        public Criteria andAvatorIsNull() {
+            addCriterion("avator is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAvatorIsNotNull() {
+            addCriterion("avator is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andAvatorEqualTo(String value) {
+            addCriterion("avator =", value, "avator");
+            return (Criteria) this;
+        }
+
+        public Criteria andAvatorNotEqualTo(String value) {
+            addCriterion("avator <>", value, "avator");
+            return (Criteria) this;
+        }
+
+        public Criteria andAvatorGreaterThan(String value) {
+            addCriterion("avator >", value, "avator");
+            return (Criteria) this;
+        }
+
+        public Criteria andAvatorGreaterThanOrEqualTo(String value) {
+            addCriterion("avator >=", value, "avator");
+            return (Criteria) this;
+        }
+
+        public Criteria andAvatorLessThan(String value) {
+            addCriterion("avator <", value, "avator");
+            return (Criteria) this;
+        }
+
+        public Criteria andAvatorLessThanOrEqualTo(String value) {
+            addCriterion("avator <=", value, "avator");
+            return (Criteria) this;
+        }
+
+        public Criteria andAvatorLike(String value) {
+            addCriterion("avator like", value, "avator");
+            return (Criteria) this;
+        }
+
+        public Criteria andAvatorNotLike(String value) {
+            addCriterion("avator not like", value, "avator");
+            return (Criteria) this;
+        }
+
+        public Criteria andAvatorIn(List<String> values) {
+            addCriterion("avator in", values, "avator");
+            return (Criteria) this;
+        }
+
+        public Criteria andAvatorNotIn(List<String> values) {
+            addCriterion("avator not in", values, "avator");
+            return (Criteria) this;
+        }
+
+        public Criteria andAvatorBetween(String value1, String value2) {
+            addCriterion("avator between", value1, value2, "avator");
+            return (Criteria) this;
+        }
+
+        public Criteria andAvatorNotBetween(String value1, String value2) {
+            addCriterion("avator not between", value1, value2, "avator");
             return (Criteria) this;
         }
 

@@ -55,12 +55,28 @@ public class AlbumServiceImpl implements AlbumService {
     }
 
     @Override
-    public PageInfo<HdAlbumInfo> findByAlbum(Integer albumid, Integer pageNum) {
-        return null;
+    public PageInfo<HdAlbumInfo> findByAlbum(Integer albumid, Integer pageNum,Integer rows) {
+        PageHelper.startPage(pageNum,rows);
+       HdAlbumInfoExample ex=new HdAlbumInfoExample();
+       if(albumid!=null)
+       ex.createCriteria().andAlbumIdEqualTo(albumid);
+
+        List<HdAlbumInfo> hdAlbumInfos = hdAlbumInfoMapper.selectByExample(ex);
+        PageInfo<HdAlbumInfo> page=new PageInfo<>(hdAlbumInfos,5);
+        return page;
+
     }
 
     @Override
-    public PageInfo<HdAlbum> findByName(String name, Integer pageNum) {
-        return null;
+    public PageInfo<HdAlbum> findByName(String name,Integer rows, Integer pageNum) {
+        PageHelper.startPage(pageNum,rows);
+        HdAlbumExample ex=new HdAlbumExample();
+        if(name!=null&&!name.trim().equals(""))
+        {
+            ex.createCriteria().andAlbumIntroLike("%"+name+"%");
+        }
+        List<HdAlbum> hdAlbums = hdAlbumMapper.selectByExample(ex);
+        PageInfo<HdAlbum> page=new PageInfo<>(hdAlbums,5);
+        return page;
     }
 }

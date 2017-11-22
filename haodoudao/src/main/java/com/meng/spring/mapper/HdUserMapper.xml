@@ -9,8 +9,10 @@
     <result column="rel_name" property="relName" jdbcType="VARCHAR" />
     <result column="birthday" property="birthday" jdbcType="DATE" />
     <result column="zodiac" property="zodiac" jdbcType="VARCHAR" />
+    <result column="cnzodiac" property="cnzodiac" jdbcType="VARCHAR" />
     <result column="blood_type" property="bloodType" jdbcType="VARCHAR" />
     <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="avator" property="avator" jdbcType="VARCHAR" />
     <result column="introduction" property="introduction" jdbcType="VARCHAR" />
     <result column="telephone" property="telephone" jdbcType="VARCHAR" />
     <result column="email" property="email" jdbcType="VARCHAR" />
@@ -78,8 +80,9 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    user_id, user_name, user_phone, user_password, rel_name, birthday, zodiac, blood_type, 
-    address, introduction, telephone, email, job, educational, school, hobby
+    user_id, user_name, user_phone, user_password, rel_name, birthday, zodiac, cnzodiac, 
+    blood_type, address, avator, introduction, telephone, email, job, educational, school, 
+    hobby
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.meng.spring.pojo.HdUserExample" >
     select
@@ -114,16 +117,18 @@
   <insert id="insert" parameterType="com.meng.spring.pojo.HdUser" >
     insert into user (user_id, user_name, user_phone, 
       user_password, rel_name, birthday, 
-      zodiac, blood_type, address, 
-      introduction, telephone, email, 
-      job, educational, school, 
-      hobby)
+      zodiac, cnzodiac, blood_type, 
+      address, avator, introduction, 
+      telephone, email, job, 
+      educational, school, hobby
+      )
     values (#{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{userPhone,jdbcType=VARCHAR}, 
       #{userPassword,jdbcType=VARCHAR}, #{relName,jdbcType=VARCHAR}, #{birthday,jdbcType=DATE}, 
-      #{zodiac,jdbcType=VARCHAR}, #{bloodType,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
-      #{introduction,jdbcType=VARCHAR}, #{telephone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
-      #{job,jdbcType=VARCHAR}, #{educational,jdbcType=VARCHAR}, #{school,jdbcType=VARCHAR}, 
-      #{hobby,jdbcType=VARCHAR})
+      #{zodiac,jdbcType=VARCHAR}, #{cnzodiac,jdbcType=VARCHAR}, #{bloodType,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{avator,jdbcType=VARCHAR}, #{introduction,jdbcType=VARCHAR}, 
+      #{telephone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{job,jdbcType=VARCHAR}, 
+      #{educational,jdbcType=VARCHAR}, #{school,jdbcType=VARCHAR}, #{hobby,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.meng.spring.pojo.HdUser" >
     insert into user
@@ -149,11 +154,17 @@
       <if test="zodiac != null" >
         zodiac,
       </if>
+      <if test="cnzodiac != null" >
+        cnzodiac,
+      </if>
       <if test="bloodType != null" >
         blood_type,
       </if>
       <if test="address != null" >
         address,
+      </if>
+      <if test="avator != null" >
+        avator,
       </if>
       <if test="introduction != null" >
         introduction,
@@ -199,11 +210,17 @@
       <if test="zodiac != null" >
         #{zodiac,jdbcType=VARCHAR},
       </if>
+      <if test="cnzodiac != null" >
+        #{cnzodiac,jdbcType=VARCHAR},
+      </if>
       <if test="bloodType != null" >
         #{bloodType,jdbcType=VARCHAR},
       </if>
       <if test="address != null" >
         #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="avator != null" >
+        #{avator,jdbcType=VARCHAR},
       </if>
       <if test="introduction != null" >
         #{introduction,jdbcType=VARCHAR},
@@ -258,11 +275,17 @@
       <if test="record.zodiac != null" >
         zodiac = #{record.zodiac,jdbcType=VARCHAR},
       </if>
+      <if test="record.cnzodiac != null" >
+        cnzodiac = #{record.cnzodiac,jdbcType=VARCHAR},
+      </if>
       <if test="record.bloodType != null" >
         blood_type = #{record.bloodType,jdbcType=VARCHAR},
       </if>
       <if test="record.address != null" >
         address = #{record.address,jdbcType=VARCHAR},
+      </if>
+      <if test="record.avator != null" >
+        avator = #{record.avator,jdbcType=VARCHAR},
       </if>
       <if test="record.introduction != null" >
         introduction = #{record.introduction,jdbcType=VARCHAR},
@@ -299,8 +322,10 @@
       rel_name = #{record.relName,jdbcType=VARCHAR},
       birthday = #{record.birthday,jdbcType=DATE},
       zodiac = #{record.zodiac,jdbcType=VARCHAR},
+      cnzodiac = #{record.cnzodiac,jdbcType=VARCHAR},
       blood_type = #{record.bloodType,jdbcType=VARCHAR},
       address = #{record.address,jdbcType=VARCHAR},
+      avator = #{record.avator,jdbcType=VARCHAR},
       introduction = #{record.introduction,jdbcType=VARCHAR},
       telephone = #{record.telephone,jdbcType=VARCHAR},
       email = #{record.email,jdbcType=VARCHAR},
@@ -333,11 +358,17 @@
       <if test="zodiac != null" >
         zodiac = #{zodiac,jdbcType=VARCHAR},
       </if>
+      <if test="cnzodiac != null" >
+        cnzodiac = #{cnzodiac,jdbcType=VARCHAR},
+      </if>
       <if test="bloodType != null" >
         blood_type = #{bloodType,jdbcType=VARCHAR},
       </if>
       <if test="address != null" >
         address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="avator != null" >
+        avator = #{avator,jdbcType=VARCHAR},
       </if>
       <if test="introduction != null" >
         introduction = #{introduction,jdbcType=VARCHAR},
@@ -371,8 +402,10 @@
       rel_name = #{relName,jdbcType=VARCHAR},
       birthday = #{birthday,jdbcType=DATE},
       zodiac = #{zodiac,jdbcType=VARCHAR},
+      cnzodiac = #{cnzodiac,jdbcType=VARCHAR},
       blood_type = #{bloodType,jdbcType=VARCHAR},
       address = #{address,jdbcType=VARCHAR},
+      avator = #{avator,jdbcType=VARCHAR},
       introduction = #{introduction,jdbcType=VARCHAR},
       telephone = #{telephone,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},

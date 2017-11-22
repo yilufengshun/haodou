@@ -8,7 +8,7 @@
 			<property name="suppressAllComments" value="true" />
 	</commentGenerator>
 	  <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
-    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost/haodou" userId="root" password="root" />
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://47.93.52.179/haodou" userId="root" password="root" />
 	  <!-- 生成POJO类的位置 -->
     <javaModelGenerator targetPackage="com.meng.spring.pojo" targetProject="src/main/java" />
 	  <!-- mapper映射文件生成的位置 -->

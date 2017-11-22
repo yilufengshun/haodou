@@ -104,63 +104,63 @@ public class HdAlbumInfoExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andAluminfoIdIsNull() {
-            addCriterion("aluminfo_id is null");
+        public Criteria andAlbuminfoIdIsNull() {
+            addCriterion("albuminfo_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andAluminfoIdIsNotNull() {
-            addCriterion("aluminfo_id is not null");
+        public Criteria andAlbuminfoIdIsNotNull() {
+            addCriterion("albuminfo_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAluminfoIdEqualTo(Integer value) {
-            addCriterion("aluminfo_id =", value, "aluminfoId");
+        public Criteria andAlbuminfoIdEqualTo(Integer value) {
+            addCriterion("albuminfo_id =", value, "albuminfoId");
             return (Criteria) this;
         }
 
-        public Criteria andAluminfoIdNotEqualTo(Integer value) {
-            addCriterion("aluminfo_id <>", value, "aluminfoId");
+        public Criteria andAlbuminfoIdNotEqualTo(Integer value) {
+            addCriterion("albuminfo_id <>", value, "albuminfoId");
             return (Criteria) this;
         }
 
-        public Criteria andAluminfoIdGreaterThan(Integer value) {
-            addCriterion("aluminfo_id >", value, "aluminfoId");
+        public Criteria andAlbuminfoIdGreaterThan(Integer value) {
+            addCriterion("albuminfo_id >", value, "albuminfoId");
             return (Criteria) this;
         }
 
-        public Criteria andAluminfoIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("aluminfo_id >=", value, "aluminfoId");
+        public Criteria andAlbuminfoIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("albuminfo_id >=", value, "albuminfoId");
             return (Criteria) this;
         }
 
-        public Criteria andAluminfoIdLessThan(Integer value) {
-            addCriterion("aluminfo_id <", value, "aluminfoId");
+        public Criteria andAlbuminfoIdLessThan(Integer value) {
+            addCriterion("albuminfo_id <", value, "albuminfoId");
             return (Criteria) this;
         }
 
-        public Criteria andAluminfoIdLessThanOrEqualTo(Integer value) {
-            addCriterion("aluminfo_id <=", value, "aluminfoId");
+        public Criteria andAlbuminfoIdLessThanOrEqualTo(Integer value) {
+            addCriterion("albuminfo_id <=", value, "albuminfoId");
             return (Criteria) this;
         }
 
-        public Criteria andAluminfoIdIn(List<Integer> values) {
-            addCriterion("aluminfo_id in", values, "aluminfoId");
+        public Criteria andAlbuminfoIdIn(List<Integer> values) {
+            addCriterion("albuminfo_id in", values, "albuminfoId");
             return (Criteria) this;
         }
 
-        public Criteria andAluminfoIdNotIn(List<Integer> values) {
-            addCriterion("aluminfo_id not in", values, "aluminfoId");
+        public Criteria andAlbuminfoIdNotIn(List<Integer> values) {
+            addCriterion("albuminfo_id not in", values, "albuminfoId");
             return (Criteria) this;
         }
 
-        public Criteria andAluminfoIdBetween(Integer value1, Integer value2) {
-            addCriterion("aluminfo_id between", value1, value2, "aluminfoId");
+        public Criteria andAlbuminfoIdBetween(Integer value1, Integer value2) {
+            addCriterion("albuminfo_id between", value1, value2, "albuminfoId");
             return (Criteria) this;
         }
 
-        public Criteria andAluminfoIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("aluminfo_id not between", value1, value2, "aluminfoId");
+        public Criteria andAlbuminfoIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("albuminfo_id not between", value1, value2, "albuminfoId");
             return (Criteria) this;
         }
 
@@ -224,63 +224,63 @@ public class HdAlbumInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andAlumIdIsNull() {
-            addCriterion("alum_id is null");
+        public Criteria andAlbumIdIsNull() {
+            addCriterion("album_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andAlumIdIsNotNull() {
-            addCriterion("alum_id is not null");
+        public Criteria andAlbumIdIsNotNull() {
+            addCriterion("album_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAlumIdEqualTo(Integer value) {
-            addCriterion("alum_id =", value, "alumId");
+        public Criteria andAlbumIdEqualTo(Integer value) {
+            addCriterion("album_id =", value, "albumId");
             return (Criteria) this;
         }
 
-        public Criteria andAlumIdNotEqualTo(Integer value) {
-            addCriterion("alum_id <>", value, "alumId");
+        public Criteria andAlbumIdNotEqualTo(Integer value) {
+            addCriterion("album_id <>", value, "albumId");
             return (Criteria) this;
         }
 
-        public Criteria andAlumIdGreaterThan(Integer value) {
-            addCriterion("alum_id >", value, "alumId");
+        public Criteria andAlbumIdGreaterThan(Integer value) {
+            addCriterion("album_id >", value, "albumId");
             return (Criteria) this;
         }
 
-        public Criteria andAlumIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("alum_id >=", value, "alumId");
+        public Criteria andAlbumIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("album_id >=", value, "albumId");
             return (Criteria) this;
         }
 
-        public Criteria andAlumIdLessThan(Integer value) {
-            addCriterion("alum_id <", value, "alumId");
+        public Criteria andAlbumIdLessThan(Integer value) {
+            addCriterion("album_id <", value, "albumId");
             return (Criteria) this;
         }
 
-        public Criteria andAlumIdLessThanOrEqualTo(Integer value) {
-            addCriterion("alum_id <=", value, "alumId");
+        public Criteria andAlbumIdLessThanOrEqualTo(Integer value) {
+            addCriterion("album_id <=", value, "albumId");
             return (Criteria) this;
         }
 
-        public Criteria andAlumIdIn(List<Integer> values) {
-            addCriterion("alum_id in", values, "alumId");
+        public Criteria andAlbumIdIn(List<Integer> values) {
+            addCriterion("album_id in", values, "albumId");
             return (Criteria) this;
         }
 
-        public Criteria andAlumIdNotIn(List<Integer> values) {
-            addCriterion("alum_id not in", values, "alumId");
+        public Criteria andAlbumIdNotIn(List<Integer> values) {
+            addCriterion("album_id not in", values, "albumId");
             return (Criteria) this;
         }
 
-        public Criteria andAlumIdBetween(Integer value1, Integer value2) {
-            addCriterion("alum_id between", value1, value2, "alumId");
+        public Criteria andAlbumIdBetween(Integer value1, Integer value2) {
+            addCriterion("album_id between", value1, value2, "albumId");
             return (Criteria) this;
         }
 
-        public Criteria andAlumIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("alum_id not between", value1, value2, "alumId");
+        public Criteria andAlbumIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("album_id not between", value1, value2, "albumId");
             return (Criteria) this;
         }
     }
