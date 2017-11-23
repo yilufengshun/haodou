@@ -2,34 +2,53 @@
 <link href="/js/kindeditor-4.1.10/themes/default/default.css" type="text/css" rel="stylesheet">
 <script type="text/javascript" charset="utf-8" src="/js/kindeditor-4.1.10/kindeditor-all-min.js"></script>
 <script type="text/javascript" charset="utf-8" src="/js/kindeditor-4.1.10/lang/zh_CN.js"></script>
-<div style="padding:10px 10px 10px 10px">
-	<form id="itemAddForm" class="itemForm" method="post">
-	    <table cellpadding="5">
+<div id="cc" class="easyui-layout" style="width:100%;height:600px;">
 
-			<tr>
-				<td>专辑信息id:</td>
-				<td><input class="easyui-textbox" type="number" name="albuminfoId" data-options="required:true" style="width: 280px;"></input></td>
-			</tr>
-			<tr>
-				<td>菜谱id:</td>
-				<td><input class="easyui-textbox" type="number" name="cookId" data-options="required:true" style="width: 280px;"></input></td>
-			</tr>
-			<tr>
-				<td>所属专辑</td>
-				<td><input class="easyui-textbox" type="number" name="albumId" data-options="required:true" style="width: 280px;"></input></td>
-			</tr>
+	<div data-options="region:'east',title:'检索专辑',split:true,href:'album-list.jsp'" style="width:50%;">
 
-	    </table>
-	    <input type="hidden" name="itemParams"/>
-	</form>
-	<div style="padding:5px">
-	    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()">提交</a>
-	    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()">重置</a>
 	</div>
-</div>
+	<div data-options="region:'center',title:'添加专辑信息'" style="padding:5px;background:#eee;">
+
+		<div style="padding:10px 10px 10px 10px" class="" data-options="region:'center'">
+			<form id="itemAddForm" class="itemForm" method="post">
+				<table cellpadding="5">
+
+					<tr>
+						<td>菜谱id:</td>
+						<td><input class="easyui-textbox" type="number" name="cookId" data-options="required:true" style="width: 280px;"></input></td>
+					</tr>
+					<tr>
+						<td>所属专辑</td>
+						<td><input class="easyui-textbox" type="number" name="albumId" data-options="required:true" style="width: 280px;"></input></td>
+					</tr>
+
+				</table>
+				<input type="hidden" name="itemParams"/>
+			</form>
+			<div style="padding:5px">
+				<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()">提交</a>
+				<a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()">重置</a>
+			</div>
+		</div>
+
+	</div>
+	<div data-options="region:'south',title:'检索用户',split:true,href:''" style="width:100%;height:150px; ">
+	</div>
+
+
+
+
+
+
+
+
+
+
+
 <script type="text/javascript">
 //	var itemAddEditor ;
 	//页面初始化完毕后执行此方法
+
 	$(function(){
 		//创建富文本编辑器
 //		itemAddEditor = TAOTAO.createEditor("#itemAddForm [name=desc]");
@@ -79,6 +98,7 @@
 
 			if(data.status == 200){
 				$.messager.alert('提示','新增专辑成功!');
+				clearForm();
 			}
 		});
 	}

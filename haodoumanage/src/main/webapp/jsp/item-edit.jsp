@@ -52,7 +52,7 @@
 				<td>工作:</td>
 				<td><input class="easyui-textbox" type="text" name="job"  style="width: 280px;"></input></td>
 			</tr>
-			tr>
+			<tr>
 			<td>email:</td>
 			<td><input class="easyui-textbox" type="text" name="email"  style="width: 280px;"></input></td>
 			</tr>

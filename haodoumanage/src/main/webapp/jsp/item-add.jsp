@@ -5,7 +5,6 @@
 <div style="padding:10px 10px 10px 10px">
 	<form id="itemAddForm" class="itemForm" method="post">
 	    <table cellpadding="5">
-
 			<tr>
 				<td>用户名称:</td>
 				<td><input class="easyui-textbox" type="text" name="userName" data-options="required:true" style="width: 280px;"></input></td>
@@ -46,7 +45,7 @@
 				<td>工作:</td>
 				<td><input class="easyui-textbox" type="text" name="job"  style="width: 280px;"></input></td>
 			</tr>
-			tr>
+			<tr>
 			<td>email:</td>
 			<td><input class="easyui-textbox" type="text" name="email"  style="width: 280px;"></input></td>
 			</tr>

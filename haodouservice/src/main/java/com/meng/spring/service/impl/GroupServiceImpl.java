@@ -5,9 +5,11 @@ import com.meng.spring.pojo.HdGroup;
 import com.meng.spring.pojo.HdGroupExample;
 import com.meng.spring.service.GroupService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class GroupServiceImpl implements GroupService {
 
     @Autowired

@@ -46,8 +46,8 @@
 			<li>
 				<span>分组管理</span>
 				<ul>
-					<li data-options="attributes:{'url':'content-category'}">添加分组</li>
-					<li data-options="attributes:{'url':'content'}">查看分组</li>
+					<li data-options="attributes:{'url':'group-add.jsp'}">添加分组</li>
+					<li data-options="attributes:{'url':'group-list.jsp'}">查看分组</li>
 				</ul>
 			</li>
 			<li>

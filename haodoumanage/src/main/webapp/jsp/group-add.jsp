@@ -3,21 +3,18 @@
 <script type="text/javascript" charset="utf-8" src="/js/kindeditor-4.1.10/kindeditor-all-min.js"></script>
 <script type="text/javascript" charset="utf-8" src="/js/kindeditor-4.1.10/lang/zh_CN.js"></script>
 <div style="padding:10px 10px 10px 10px">
-	<form id="albumform" class="itemForm" method="post">
+	<form id="itemAddForm" class="itemForm" method="post">
 	    <table cellpadding="5">
 
 			<tr>
-				<td>专辑名称:</td>
-				<td><input class="easyui-textbox" type="text" name="albumIntro" data-options="required:true" style="width: 280px;"></input></td>
+				<td>上级名称</td>
+				<td><input class="easyui-textbox" type="text" name="groupType"  style="width: 280px;"></input></td>
 			</tr>
 			<tr>
-				<td>简介:</td>
-				<td><input class="easyui-textbox" type="text" name="albumTap"  style="width: 280px;"></input></td>
+				<td>分组名称</td>
+				<td><input class="easyui-textbox" type="text" name="groupName"  style="width: 280px;"></input></td>
 			</tr>
-			<tr>
-				<td>所属用户id</td>
-				<td><input class="easyui-textbox" type="text" name="userId" data-options="required:true" style="width: 280px;"></input></td>
-			</tr>
+
 
 	    </table>
 	    <input type="hidden" name="itemParams"/>
@@ -32,22 +29,22 @@
 	//页面初始化完毕后执行此方法
 	$(function(){
 		//创建富文本编辑器
-		itemAddEditor = TAOTAO.createEditor("#itemAddForm [name=desc]");
+	//	itemAddEditor = TAOTAO.createEditor("#itemAddForm [name=desc]");
 		//初始化类目选择和图片上传器
-		TAOTAO.init({fun:function(node){
+	//	TAOTAO.init({fun:function(node){
 			//根据商品的分类id取商品 的规格模板，生成规格信息。第四天内容。
-			TAOTAO.changeItemParam(node, "itemAddForm");
-		}});
+	//		TAOTAO.changeItemParam(node, "itemAddForm");
+	//	}});
 	});
 	//提交表单
 	function submitForm(){
 		//有效性验证
-		if(!$('#albumform').form('validate')){
+		if(!$('#itemAddForm').form('validate')){
 			$.messager.alert('提示','表单还未填写完成!');
 			return ;
 		}
 		//取商品价格，单位为“分”
-	//	$("#itemAddForm [name=price]").val(eval($("#itemAddForm [name=priceView]").val()) * 100);
+		//$("#itemAddForm [name=price]").val(eval($("#itemAddForm [name=priceView]").val()) * 100);
 		//同步文本框中的商品描述
 	//	itemAddEditor.sync();
 		//取商品的规格
@@ -75,16 +72,16 @@
 		//ajax的post方式提交表单
 		//$("#itemAddForm").serialize()将表单序列号为key-value形式的字符串
 //		alert($("#itemAddForm").serialize());
-		$.post("/album/add",$("#albumform").serialize(), function(data){
-
+		$.post("/group/add",$("#itemAddForm").serialize(), function(data){
+		    alert(data.status);
 			if(data.status == 200){
-				$.messager.alert('提示','新增用户成功!');
+				$.messager.alert('提示','新增分组成功!');
 			}
 		});
 	}
 	
 	function clearForm(){
-		$('#albumform').form('reset');
+		$('#itemAddForm').form('reset');
 		itemAddEditor.html('');
 	}
 </script>

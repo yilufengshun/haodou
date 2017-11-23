@@ -73,7 +73,7 @@
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from group
+    from `group`
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -84,21 +84,21 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
-    from group
+    from `group`
     where group_id = #{groupId,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
-    delete from group
+    delete from `group`
     where group_id = #{groupId,jdbcType=BIGINT}
   </delete>
   <delete id="deleteByExample" parameterType="com.meng.spring.pojo.HdGroupExample" >
-    delete from group
+    delete from `group`
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
   <insert id="insert" parameterType="com.meng.spring.pojo.HdGroup" >
-    insert into group (group_id, group_type, group_name
+    insert into `group` (group_id, group_type, group_name
       )
     values (#{groupId,jdbcType=BIGINT}, #{groupType,jdbcType=VARCHAR}, #{groupName,jdbcType=VARCHAR}
       )
@@ -129,7 +129,7 @@
     </trim>
   </insert>
   <select id="countByExample" parameterType="com.meng.spring.pojo.HdGroupExample" resultType="java.lang.Integer" >
-    select count(*) from group
+    select count(*) from `group`
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
